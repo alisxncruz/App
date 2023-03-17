@@ -2,6 +2,8 @@ package com.example.appsplash.Method;
 
 import androidx.core.util.PatternsCompat;
 
+import com.example.appsplash.Login;
+import com.example.appsplash.OlvideContra;
 import com.example.appsplash.Registro;
 import com.example.appsplash.infoRegistro;
 
@@ -72,12 +74,19 @@ public class Sha
     }
 
     public static void myInfo (infoRegistro info){
-        //pendiente
+        info.setUsuario(Registro.usuarioo);
+        String contra = Registro.passwordd;
+        info.setContra(contra);
+        info.setNombre(Registro.nombree);
+        info.setEdad(Registro.edadd);
+        info.setCorreo(Registro.correoo);
+        info.setSexo(Registro.sw);
+        info.setActivado(Registro.activado);
     }
-//pendiente
+
     /*public static void encuentra(String cadena){
         for(infoRegistro info: OlvideContra.list){
-            if(Login.usr.equals(info.getUsuario())){
+            if(Login.usuario.equals(info.getUsuario())){
                 cadena = "El usuario existe, recuerde la contraseña";
             }else{
                 cadena = "El usuario no existe, recuerde todo";
