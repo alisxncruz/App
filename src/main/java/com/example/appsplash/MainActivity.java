@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -18,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(Build.VERSION.SDK_INT >= 21){
+            Window w = this.getWindow();
+            w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            w.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            w.setStatusBarColor(this.getResources().getColor(R.color.barra));
+        }
+        
         UsuarioService usuarioService = new UsuarioService(MainActivity.this);
         SQLiteDatabase database = usuarioService.getWritableDatabase();
 
@@ -28,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
         }
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN ,WindowManager.LayoutParams.FLAG_FULLSCREEN );
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         acepta = findViewById(R.id.acepta);
         olvide = findViewById(R.id.olvide);
-        registra = findViewById(R.id.olvide);
+        registra = findViewById(R.id.registrame);
         EditText usuario = findViewById(R.id.usuarioText);
         EditText contra = findViewById(R.id.passText);
 
